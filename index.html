@@ -1,213 +1,925 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khushi | Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #fcfcfc;
-            --card-bg: #ffffff;
-            --text-main: #2b2b2b;
-            --text-muted: #666666;
-            --accent: #2c3e50;
-            --border-color: #e5e5e5;
-            --tag-bg: #f0f4f8;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Khushi's professional portfolio — BCA student and entry-level candidate.">
+  <title>Khushi | BCA Student & Entry-Level Candidate</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: rgba(255,255,255,.88);
+      --text: #172033;
+      --muted: #687386;
+      --primary: #3157d5;
+      --primary-dark: #213fa8;
+      --accent: #eaf0ff;
+      --border: #e5e9f2;
+      --shadow: 0 18px 50px rgba(35, 55, 100, .09);
+      --radius: 22px;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* Header / Hero */
-        header {
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 30px;
-        }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(49,87,213,.10), transparent 28%),
+        radial-gradient(circle at 10% 35%, rgba(99,102,241,.07), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--accent);
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
-        }
+    a { color: inherit; text-decoration: none; }
 
-        .subtitle {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
 
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
+    /* NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(247,249,252,.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(229,233,242,.7);
+    }
 
-        .contact-info a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
 
-        /* Sections */
-        section {
-            margin-bottom: 35px;
-        }
+    .logo span { color: var(--primary); }
 
-        h2 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 15px;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+      font-size: .94rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
 
-        p {
-            color: #444;
-            font-size: 0.98rem;
-        }
+    .nav-links a:hover { color: var(--primary); }
 
-        /* Lists & Education */
-        .item {
-            margin-bottom: 18px;
-        }
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: var(--accent);
+      color: var(--primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
 
-        .item-title {
-            font-weight: 500;
-            color: var(--text-main);
-            font-size: 1rem;
-        }
+    /* GENERAL */
+    section { padding: 100px 0; scroll-margin-top: 70px; }
 
-        .item-sub {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
+    .section-label {
+      color: var(--primary);
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 8px;
+    }
 
-        /* Tags / Skills */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 5px;
-        }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -.045em;
+      margin-bottom: 14px;
+    }
 
-        .tag {
-            background-color: var(--tag-bg);
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.88rem;
-            font-weight: 400;
-            border: 1px solid #e1e8ed;
-        }
+    .section-intro {
+      max-width: 680px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
 
-        /* Footer */
-        footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-    </style>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .94rem;
+      transition: .25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 10px 24px rgba(49,87,213,.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: white;
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #cbd3e3;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding-top: 120px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 750;
+      font-size: .82rem;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.1rem, 7vw, 5.8rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+      max-width: 760px;
+    }
+
+    .hero h1 span { color: var(--primary); }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-weight: 700;
+      margin: 20px 0 14px;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 1.03rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 34px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: var(--accent);
+      top: -70px;
+      right: -60px;
+    }
+
+    .initial {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #3157d5, #6f83e8);
+      color: white;
+      font-size: 3rem;
+      font-weight: 850;
+      margin-bottom: 25px;
+      box-shadow: 0 18px 35px rgba(49,87,213,.25);
+    }
+
+    .hero-card h3 { font-size: 1.35rem; margin-bottom: 7px; }
+
+    .hero-card p { color: var(--muted); font-size: .94rem; }
+
+    .mini-list {
+      list-style: none;
+      margin-top: 22px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-list li {
+      padding: 11px 13px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: .9rem;
+      font-weight: 650;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote {
+      border-left: 4px solid var(--primary);
+      padding-left: 20px;
+      font-size: 1.08rem;
+      font-weight: 650;
+      color: #26314a;
+    }
+
+    .about-copy {
+      color: var(--muted);
+      margin-top: 20px;
+    }
+
+    /* EDUCATION */
+    .timeline {
+      position: relative;
+      max-width: 850px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: #d9e0ee;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 42px;
+      margin-bottom: 28px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white;
+      border: 5px solid var(--primary);
+    }
+
+    .timeline-item h3 { font-size: 1.12rem; }
+
+    .timeline-item .meta {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: .9rem;
+      margin: 4px 0;
+    }
+
+    .timeline-item p { color: var(--muted); }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      transition: .25s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 850;
+      margin-bottom: 15px;
+    }
+
+    .skill-card h3 { font-size: 1rem; margin-bottom: 4px; }
+    .skill-card p { color: var(--muted); font-size: .88rem; }
+
+    /* CERTIFICATION */
+    .cert-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cert-badge {
+      flex: 0 0 auto;
+      width: 90px;
+      height: 90px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .cert-content h3 { font-size: 1.25rem; }
+    .cert-content p { color: var(--muted); margin-top: 5px; }
+
+    /* STRENGTHS */
+    .strengths {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      padding: 11px 15px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: white;
+      font-weight: 650;
+      font-size: .9rem;
+    }
+
+    /* INTERVIEW */
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 18px 20px;
+      transition: .2s ease;
+    }
+
+    details[open] { box-shadow: var(--shadow); }
+
+    summary {
+      cursor: pointer;
+      font-weight: 750;
+      list-style: none;
+      padding-right: 20px;
+      position: relative;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: -2px;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    details[open] summary::after { content: "−"; }
+
+    details p {
+      color: var(--muted);
+      margin-top: 14px;
+      font-size: .94rem;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      text-align: center;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 26px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .88rem;
+      text-align: center;
+    }
+
+    /* REVEAL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card { max-width: 520px; }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .answer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      section { padding: 78px 0; }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(255,255,255,.97);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.active { display: flex; }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 13px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover { background: var(--accent); }
+
+      .menu-btn { display: block; }
+
+      .hero h1 { font-size: 3.5rem; }
+
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .cert-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cert-badge { width: 78px; height: 78px; }
+
+      .card { padding: 23px; }
+    }
+  </style>
 </head>
+
 <body>
 
+  <header>
     <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>Khushi</h1>
-            <p class="subtitle">BCA Student & IT Support Enthusiast</p>
-            <div class="contact-info">
-                <span>📍 Delhi, India</span>
-                <span>📞 +91-9871662459</span>
-                <span>✉️ <a href="mailto:khushi.email@gmail.com">khushi.email@gmail.com</a></span>
-            </div>
-        </header>
+      <nav>
+        <a href="#home" class="logo">K<span>.</span></a>
 
-        <!-- About Me -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Enthusiastic and quick-learning BCA student (IGNOU) with a strong educational foundation. Possesses basic knowledge of Linux, Networking, and Cloud Computing, backed by a Linux Foundation Certification. Seeking an entry-level position to apply technical basics, gain real-world experience, and contribute to IT support operations with high dedication.</p>
-        </section>
+        <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button>
 
-        <!-- Technical Knowledge -->
-        <section id="technical-skills">
-            <h2>Technical Foundations</h2>
-            <div class="tags">
-                <span class="tag">Linux</span>
-                <span class="tag">Networking</span>
-                <span class="tag">Cloud Computing</span>
-                <span class="tag">IT Support Operations</span>
-            </div>
-        </section>
-
-        <!-- Certifications -->
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <div class="item">
-                <div class="item-title">LFS101: Introduction to Linux</div>
-                <div class="item-sub">Linux Foundation</div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="education">
-            <h2>Education</h2>
-            <div class="item">
-                <div class="item-title">Bachelor of Computer Applications (BCA)</div>
-                <div class="item-sub">Indira Gandhi National Open University (IGNOU) — <i>In Progress</i></div>
-            </div>
-            <div class="item">
-                <div class="item-title">Senior Secondary School (Class XII) — CBSE</div>
-                <div class="item-sub">Government Girls Senior Secondary School, Delhi</div>
-            </div>
-            <div class="item">
-                <div class="item-title">Secondary School (Class X) — CBSE</div>
-                <div class="item-sub">Government Girls Senior Secondary School, Delhi</div>
-            </div>
-        </section>
-
-        <!-- Soft Skills -->
-        <section id="soft-skills">
-            <h2>Soft Skills</h2>
-            <div class="tags">
-                <span class="tag">Quick Learner & Adaptable</span>
-                <span class="tag">Effective Communication</span>
-                <span class="tag">Time Management</span>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 Khushi • Built with GitHub Pages</p>
-        </footer>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certification">Certification</a></li>
+          <li><a href="#interview">Profile</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="reveal">
+          <div class="eyebrow">Open to Entry-Level Opportunities</div>
+
+          <h1>Hello, I'm <span>Khushi.</span></h1>
+
+          <p class="hero-subtitle">
+            BCA Student · Quick Learner · Future Cloud Professional
+          </p>
+
+          <p class="hero-text">
+            I am currently pursuing my BCA from IGNOU and looking for an
+            entry-level opportunity where I can gain practical work experience,
+            develop professional skills, learn from real work situations,
+            and contribute positively to an organization.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#contact">Let's Connect →</a>
+            <a class="btn btn-secondary" href="#about">View Profile</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="initial">K</div>
+          <h3>Khushi</h3>
+          <p>Nangloi, Delhi</p>
+
+          <ul class="mini-list">
+            <li>🎓 BCA — IGNOU</li>
+            <li>💻 Linux · Networking · Cloud</li>
+            <li>🌱 Fresher & Willing to Learn</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-label reveal">01 — About Me</div>
+        <h2 class="section-title reveal">A learner ready to grow.</h2>
+        <p class="section-intro reveal">
+          A simple introduction to my background, goals, and the kind of
+          opportunity I am looking for.
+        </p>
+
+        <div class="about-grid">
+          <div class="card reveal">
+            <div class="quote">
+              “I am a quick learner, responsible, adaptable, and willing to
+              learn new things.”
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <p class="about-copy">
+              I am currently pursuing my Bachelor of Computer Applications
+              (BCA) from IGNOU. Alongside my studies, I want to gain practical
+              work experience and develop my professional skills.
+            </p>
+
+            <p class="about-copy">
+              I am open to entry-level opportunities where I can understand
+              how a professional workplace works, learn from real work
+              situations, take responsibility for my tasks, and give my best
+              to the organization.
+            </p>
+
+            <p class="about-copy">
+              I also have basic knowledge of computer networking, cloud
+              computing, and Linux fundamentals, and I am interested in
+              continuing to build my technical knowledge.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-label reveal">02 — Education</div>
+        <h2 class="section-title reveal">My academic journey.</h2>
+        <p class="section-intro reveal">
+          My current studies and school education.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <div class="meta">Indira Gandhi National Open University (IGNOU)</div>
+            <p>Currently pursuing.</p>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <h3>Senior Secondary — Class XII</h3>
+            <div class="meta">CBSE · Arts with History</div>
+            <p>Government Girls Senior Secondary School, Delhi.</p>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <h3>Secondary — Class X</h3>
+            <div class="meta">CBSE</div>
+            <p>Government Girls Senior Secondary School, Delhi.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-label reveal">03 — Knowledge</div>
+        <h2 class="section-title reveal">What I know.</h2>
+        <p class="section-intro reveal">
+          These are areas where I currently have basic knowledge and am
+          continuing to learn.
+        </p>
+
+        <div class="skills-grid">
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">NET</div>
+            <h3>Computer Networking</h3>
+            <p>Basic knowledge of networking concepts and fundamentals.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">☁</div>
+            <h3>Cloud Computing</h3>
+            <p>Basic understanding of cloud computing concepts.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">LIN</div>
+            <h3>Linux Fundamentals</h3>
+            <p>Basic Linux knowledge supported by an Introduction to Linux certification.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATION -->
+    <section id="certification">
+      <div class="container">
+        <div class="section-label reveal">04 — Certification</div>
+        <h2 class="section-title reveal">Learning beyond academics.</h2>
+
+        <div class="card cert-card reveal">
+          <div class="cert-badge">LFS<br>101</div>
+
+          <div class="cert-content">
+            <h3>Introduction to Linux (LFS101)</h3>
+            <p>
+              The Linux Foundation · Completed September 4, 2025
+            </p>
+            <p>
+              A certification reflecting foundational knowledge of Linux.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRENGTHS -->
+    <section id="strengths">
+      <div class="container">
+        <div class="section-label reveal">05 — Strengths</div>
+        <h2 class="section-title reveal">How I approach work.</h2>
+        <p class="section-intro reveal">
+          The qualities I bring as a fresher.
+        </p>
+
+        <div class="card reveal">
+          <div class="strengths">
+            <span class="pill">Quick Learner</span>
+            <span class="pill">Responsible</span>
+            <span class="pill">Adaptable</span>
+            <span class="pill">Willingness to Learn</span>
+            <span class="pill">Effective Communication</span>
+            <span class="pill">Time Management</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERVIEW / PROFESSIONAL PROFILE -->
+    <section id="interview">
+      <div class="container">
+        <div class="section-label reveal">06 — Professional Profile</div>
+        <h2 class="section-title reveal">What I bring to an opportunity.</h2>
+        <p class="section-intro reveal">
+          A few points that describe my approach as a fresher.
+        </p>
+
+        <div class="answer-grid">
+
+          <details class="reveal">
+            <summary>Tell me about yourself</summary>
+            <p>
+              Sure. My name is Khushi. I am currently pursuing my BCA from
+              IGNOU. I am a fresher and I am looking for an entry-level
+              opportunity where I can gain practical work experience and
+              develop my professional skills. I am a quick learner and
+              responsible person, and I am willing to learn new things.
+              I also have basic knowledge of Linux, networking, and cloud
+              computing, and I want to continue improving my skills.
+            </p>
+          </details>
+
+          <details class="reveal">
+            <summary>Why should we hire you?</summary>
+            <p>
+              As a fresher, I may not have professional experience yet, but
+              I am a quick learner and I am willing to learn new things.
+              I am responsible, hardworking, and open to new challenges.
+              I believe I can learn quickly, adapt to the work environment,
+              and give my best to the organization.
+            </p>
+          </details>
+
+          <details class="reveal">
+            <summary>What are your strengths?</summary>
+            <p>
+              My strengths are that I am a quick learner, responsible, and
+              adaptable. I am always willing to learn new things, and when I
+              am given a task, I try to complete it properly and on time.
+            </p>
+          </details>
+
+          <details class="reveal">
+            <summary>What is your weakness?</summary>
+            <p>
+              One of my weaknesses is that sometimes I take a little extra
+              time to make sure that my work is correct. But I am working on
+              improving my time management and balancing accuracy with speed.
+            </p>
+          </details>
+
+          <details class="reveal">
+            <summary>Why are you looking for a job?</summary>
+            <p>
+              I am currently pursuing my BCA from IGNOU, and along with my
+              studies, I want to gain practical work experience. I believe a
+              job will help me improve my professional skills, learn from real
+              work situations, and understand the workplace better.
+            </p>
+          </details>
+
+          <details class="reveal">
+            <summary>What kind of opportunity are you looking for?</summary>
+            <p>
+              I am open to entry-level opportunities where I can learn, gain
+              practical experience, take responsibility, and grow
+              professionally while contributing to the organization.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="card contact-box reveal">
+          <div class="section-label">07 — Contact</div>
+          <h2 class="section-title">Let's connect.</h2>
+
+          <p>
+            I am open to entry-level opportunities and professional
+            conversations. Feel free to get in touch with me.
+          </p>
+
+          <div class="contact-links">
+            <a class="btn btn-primary" href="tel:+919871662459">
+              📞 Call Me
+            </a>
+
+            <a class="btn btn-secondary" href="mailto:khushi.email@gmail.com">
+              ✉ Email Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Khushi · Built with HTML, CSS & JavaScript
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+
+    // Reveal animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
