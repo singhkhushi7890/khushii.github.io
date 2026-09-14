@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushi | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --card-bg: #ffffff;
+            --text-main: #2b2b2b;
+            --text-muted: #666666;
+            --accent: #2c3e50;
+            --border-color: #e5e5e5;
+            --tag-bg: #f0f4f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Header / Hero */
+        header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #444;
+            font-size: 0.98rem;
+        }
+
+        /* Lists & Education */
+        .item {
+            margin-bottom: 18px;
+        }
+
+        .item-title {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .item-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Tags / Skills */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            font-weight: 400;
+            border: 1px solid #e1e8ed;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Khushi</h1>
+            <p class="subtitle">BCA Student & IT Support Enthusiast</p>
+            <div class="contact-info">
+                <span>📍 Delhi, India</span>
+                <span>📞 +91-9871662459</span>
+                <span>✉️ <a href="mailto:khushi.email@gmail.com">khushi.email@gmail.com</a></span>
+            </div>
+        </header>
+
+        <!-- About Me -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Enthusiastic and quick-learning BCA student (IGNOU) with a strong educational foundation. Possesses basic knowledge of Linux, Networking, and Cloud Computing, backed by a Linux Foundation Certification. Seeking an entry-level position to apply technical basics, gain real-world experience, and contribute to IT support operations with high dedication.</p>
+        </section>
+
+        <!-- Technical Knowledge -->
+        <section id="technical-skills">
+            <h2>Technical Foundations</h2>
+            <div class="tags">
+                <span class="tag">Linux</span>
+                <span class="tag">Networking</span>
+                <span class="tag">Cloud Computing</span>
+                <span class="tag">IT Support Operations</span>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="item">
+                <div class="item-title">LFS101: Introduction to Linux</div>
+                <div class="item-sub">Linux Foundation</div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="item">
+                <div class="item-title">Bachelor of Computer Applications (BCA)</div>
+                <div class="item-sub">Indira Gandhi National Open University (IGNOU) — <i>In Progress</i></div>
+            </div>
+            <div class="item">
+                <div class="item-title">Senior Secondary School (Class XII) — CBSE</div>
+                <div class="item-sub">Government Girls Senior Secondary School, Delhi</div>
+            </div>
+            <div class="item">
+                <div class="item-title">Secondary School (Class X) — CBSE</div>
+                <div class="item-sub">Government Girls Senior Secondary School, Delhi</div>
+            </div>
+        </section>
+
+        <!-- Soft Skills -->
+        <section id="soft-skills">
+            <h2>Soft Skills</h2>
+            <div class="tags">
+                <span class="tag">Quick Learner & Adaptable</span>
+                <span class="tag">Effective Communication</span>
+                <span class="tag">Time Management</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Khushi • Built with GitHub Pages</p>
+        </footer>
+    </div>
+
+</body>
+</html>
